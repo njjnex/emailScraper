@@ -1,5 +1,5 @@
 # emailScraper
-Java Google search pages email scraper.
+Java Google search pages email scraper. Download jar at http://scrapingon.com
 
 Simple scrawler script auto fulls Google search form whith user defined data than visit result pages and scrap emails.
 Scraped data stored in txt file.
