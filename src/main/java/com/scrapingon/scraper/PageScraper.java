@@ -21,6 +21,11 @@ public abstract class PageScraper{
 
 	public abstract Document visitPage();
 
+	/**
+	 * Extract all data that matches Page pattern from Document
+	 * @param doc - JSOUP document 
+	 * @return - emailList, list of extracted email addresses.
+	 */
 	public List<String> scrapData(Document doc) {
 		List<String> emailList = new ArrayList<String>();
 		Elements emails = doc.getElementsMatchingOwnText(pattern);

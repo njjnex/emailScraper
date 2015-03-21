@@ -5,6 +5,9 @@ import java.util.List;
 import com.scrapingon.fileUtils.WriteToFile;
 import com.scrapingon.model.Page;
 
+/**
+ * Place each PageScraper in separated thread
+ */
 public class EmailExtractor implements Runnable {
 
 	private Page resultPage;
@@ -24,7 +27,7 @@ public class EmailExtractor implements Runnable {
 				WriteToFile.getInstance().writeToFile(results);
 			}
 		} catch (Exception e) {
-			
+
 		}
 
 	}

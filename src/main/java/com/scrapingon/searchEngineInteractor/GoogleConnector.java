@@ -19,8 +19,15 @@ public class GoogleConnector {
 	private HtmlUnitDriver driver;
 	private int startPage, endPage;
 
+	/**
+	 * 
+	 * @param url - http://google.com for google scraper 
+	 * @param searchPhrase - text to insert into search engine Search field
+	 * @param startPage - begin extract result from page
+	 * @param endPage - end extracting on page
+	 */
 	public GoogleConnector(String url, String searchPhrase, int startPage, int endPage) {
-
+		
 		LogFactory.getFactory().setAttribute("org.apache.commons.logging.Log",
 				"org.apache.commons.logging.impl.NoOpLog");
 		java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
@@ -36,6 +43,10 @@ public class GoogleConnector {
 		searchField.submit();
 	}
 
+	/**
+	 * @param driver - HtmlUnitDriver
+	 * @return - List of links extracted from one page
+	 */
 	public List<String> extractLinks(HtmlUnitDriver driver) {
 		List<String> links = new ArrayList<String>();
 		WebElement el = null;
@@ -61,7 +72,10 @@ public class GoogleConnector {
 		return links;
 	}
 
-	public HtmlUnitDriver scanResults() {
+	/**
+	 * Switch search engine pages  
+	 */
+	public void scanResults() {
 
 		if (startPage == 1) {
 			System.out.println("-------Scanning page " + driver.getCurrentUrl() + "----------");
@@ -81,8 +95,6 @@ public class GoogleConnector {
 				break;
 			}
 		}
-
-		return null;
 	}
 
 }
